@@ -237,10 +237,10 @@ void Server::Start()
 
 				//服务端发送欢迎信息
 				cout<<"Welcome message"<<endl;
-				char message[BUF_SIZE];
+				char message[BUF_SIZE]={0};
 				bzero(message,BUF_SIZE);
 				sprintf(message,SERVER_WELCOME,clientfd);
-				int ret = send(clientfd,message,BUF_SIZE,0);
+				int ret = send(clientfd,message,100,0);
 				if(ret<0)
 				{
 					perror("send error: ");
